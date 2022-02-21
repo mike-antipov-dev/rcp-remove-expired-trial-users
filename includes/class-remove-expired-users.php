@@ -59,8 +59,8 @@ class Remove_Expired_Users {
     
                 if ($membership->get_status() == 'expired' && $membership->get_object_id() == 2 && !$is_affiliate) {
                     // Remove membership
-                    $response = wp_remote_request( 'https://staging.guptaprogram.com/wp-json/rcp/v1/memberships/delete/' . $mid, $this->api_args );
-                    Remove user and his meta
+                    $response = wp_remote_request(get_site_url() . '/wp-json/rcp/v1/memberships/delete/' . $mid, $this->api_args );
+                    // Remove user and his meta
                     $result = wp_delete_user($cid);
                 }
             }
